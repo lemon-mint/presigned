@@ -9,10 +9,13 @@ import (
 	"time"
 
 	"github.com/lemon-mint/envaddr"
+	"github.com/lemon-mint/godotenv"
 	"github.com/valyala/fasthttp"
 )
 
 func main() {
+	godotenv.Load()
+
 	ln, err := net.Listen("tcp", envaddr.Get(":16702"))
 	if err != nil {
 		log.Fatalln(err)
